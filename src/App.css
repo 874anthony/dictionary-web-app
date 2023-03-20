@@ -1,0 +1,16 @@
+.main-layout {
+  width: 50vw;
+  min-width: 50vw;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom-dropdown {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+}
