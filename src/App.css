@@ -66,15 +66,15 @@
   line-height: 2.4rem;
 }
 
-.custom-dropdown-list-item[data-font="'Inter', sans-serif"] {
+.custom-dropdown-list-item[data-value="'Inter', sans-serif"] {
   font-family: "Inter", sans-serif;
 }
 
-.custom-dropdown-list-item[data-font="'Lora', serif"] {
+.custom-dropdown-list-item[data-value="'Lora', serif"] {
   font-family: "Lora", serif;
 }
 
-.custom-dropdown-list-item[data-font="'Inconsolata', monospace"] {
+.custom-dropdown-list-item[data-value="'Inconsolata', monospace"] {
   font-family: "Inconsolata", monospace;
 }
 
