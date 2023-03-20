@@ -1,15 +1,61 @@
+import { useEffect, useState } from 'react'
 import './App.css'
 
-export default function App () {
-  const handleDropdownClick = ({ target }) => {
-    const dropdown = target.closest('.custom-dropdown')
-    const dropdownList = dropdown.lastElementChild
+const fontsAvailable = [
+  {
+    name: 'Sans Serif',
+    value: "'Inter', sans-serif"
+  },
+  {
+    name: 'Serif',
+    value: "'Lora', serif"
+  },
+  {
+    name: 'Mono',
+    value: "'Inconsolata', monospace"
+  }
+]
 
-    if (dropdownList.classList.contains('drop-active')) {
-      dropdownList.classList.remove('drop-active')
-    } else {
-      dropdownList.classList.add('drop-active')
-    }
+const selectedFontType = localStorage.getItem('selectedFontType') ?? fontsAvailable[0].name
+
+export default function App () {
+  const [fontSelected, setFontSelected] = useState(selectedFontType)
+
+  useEffect(() => {
+    const { value } = fontsAvailable.find(({ name }) => name === selectedFontType)
+
+    document.body.style.fontFamily = value
+    const dropdownList = Array.from(document.querySelector('.custom-dropdown-list').children)
+
+    const typeFont = dropdownList.find((item) => {
+      const { dataset: { font } } = item
+      return font === value
+    })
+
+    typeFont.classList.add('text-active')
+  }, [])
+
+  const handleDropdownClick = ({ target }) => {
+    const { lastElementChild: dropdownList } = target.closest('.custom-dropdown')
+
+    dropdownList.classList.contains('drop-active')
+      ? dropdownList.classList.remove('drop-active')
+      : dropdownList.classList.add('drop-active')
+  }
+
+  const handleFontChange = ({ target }) => {
+    const { dataset: { font } } = target
+    document.body.style.fontFamily = font
+
+    const { parentNode: dropdownList } = target.closest('.custom-dropdown-list')
+    const activeFontType = dropdownList.querySelector('.text-active')
+
+    if (activeFontType) activeFontType.classList.remove('text-active')
+    target.classList.add('text-active')
+
+    const { innerText } = target
+    localStorage.setItem('selectedFontType', innerText)
+    setFontSelected(innerText)
   }
 
   return (
@@ -20,13 +66,15 @@ export default function App () {
 
         <div className="header-controls">
           <div onClick={handleDropdownClick} className="custom-dropdown">
-            <span className="custom-dropdown-title">Sans Serif</span>
+            <span className="custom-dropdown-title">{fontSelected}</span>
             <img src="images/icon-arrow-down.svg" alt="Arrow Down" />
 
             <ul className="custom-dropdown-list">
-              <li className="custom-dropdown-list-item" data-font="sans-serif">Sans Serif</li>
-              <li className="custom-dropdown-list-item" data-font="serif">Serif</li>
-              <li className="custom-dropdown-list-item" data-font="mono">Mono</li>
+              {
+                fontsAvailable.map(({ name, value }, index) => (
+                  <li key={index} onClick={handleFontChange} className="custom-dropdown-list-item" data-font={value}>{name}</li>
+                ))
+              }
             </ul>
           </div>
 

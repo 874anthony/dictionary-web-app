@@ -20,8 +20,17 @@
   gap: 1.6rem;
   cursor: pointer;
   position: relative;
+  min-width: 12rem;
+  justify-content: end;
 }
 
+.custom-dropdown-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+}
+
+/* TODO: Check to modify this */
 .custom-dropdown > .custom-dropdown-list {
   width: 0;
   height: 1px;
@@ -57,22 +66,20 @@
   line-height: 2.4rem;
 }
 
-.custom-dropdown-list-item[data-font="sans-serif"] {
+.custom-dropdown-list-item[data-font="'Inter', sans-serif"] {
   font-family: "Inter", sans-serif;
 }
 
-.custom-dropdown-list-item[data-font="serif"] {
+.custom-dropdown-list-item[data-font="'Lora', serif"] {
   font-family: "Lora", serif;
 }
 
-.custom-dropdown-list-item[data-font="mono"] {
+.custom-dropdown-list-item[data-font="'Inconsolata', monospace"] {
   font-family: "Inconsolata", monospace;
 }
 
-.custom-dropdown-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  line-height: 2.4rem;
+.custom-dropdown-list-item.text-active {
+  color: var(--color-purple);
 }
 
 input[type="checkbox"] {

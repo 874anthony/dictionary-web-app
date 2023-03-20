@@ -40,14 +40,6 @@ h6 {
   overflow-wrap: break-word;
 }
 
-/* General variables */
-:root {
-  --color-purple: hsl(274, 82%, 60%);
-  --color-white: #fff;
-
-  --shadow-color: rgba(0, 0, 0, 0.2);
-}
-
 /* CSS at-rules */
 @font-face {
   font-family: "Inter";
@@ -75,10 +67,23 @@ h6 {
   font-weight: 100 900;
 }
 
+/* General variables */
+:root {
+  /* Colors */
+  --color-purple: hsl(274, 82%, 60%);
+  --color-white: #fff;
+
+  /* Shadows */
+  --shadow-color: rgba(0, 0, 0, 0.2);
+
+  /* Font family */
+  --font-family: "Inter", sans-serif;
+}
+
 /* General styles */
 body {
   display: grid;
   place-items: center;
-  font-family: "Inter", sans-serif;
+  /* font-family: var(--font-family); */
   padding-top: 5.6rem;
 }
