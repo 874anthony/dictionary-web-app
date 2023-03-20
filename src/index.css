@@ -84,6 +84,5 @@ h6 {
 body {
   display: grid;
   place-items: center;
-  /* font-family: var(--font-family); */
   padding-top: 5.6rem;
 }
