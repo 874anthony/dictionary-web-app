@@ -1,0 +1,6 @@
+# Ignore all .js, .mjs, and .jsx files
+
+*.js
+*.mjs
+*.jsx
+
