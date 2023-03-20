@@ -128,3 +128,31 @@ input:checked[type="checkbox"]::after {
   gap: 2rem;
   align-items: center;
 }
+
+/* SEARCH INPUT */
+.search-box {
+  position: relative;
+  margin-top: 4.8rem;
+}
+
+.input-search {
+  font-size: 2rem;
+  line-height: 2.4rem;
+  font-weight: 700;
+  width: 100%;
+  background: #f4f4f4;
+  padding: 2.4rem;
+  outline: none;
+  border: none;
+
+  border-radius: 1.6rem;
+}
+
+.search-box > .input-search__icon {
+  position: absolute;
+  width: 1.6rem;
+  height: 1.6rem;
+  top: 50%;
+  right: 2.5%;
+  transform: translateY(-50%);
+}
