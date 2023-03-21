@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 
 export default function Layout ({ children }) {
-  return <section className="main-layout">{ children }</section>
+  return <main className="main-layout">{ children }</main>
 }
 
 Layout.propTypes = {
