@@ -73,6 +73,7 @@ h6 {
   --color-red: hsl(0, 100%, 66%);
   --color-purple: hsl(274, 82%, 60%);
   --color-white: #fff;
+  --color-black: #2d2d2d;
 
   /* Shadows */
   --shadow-color: rgba(0, 0, 0, 0.2);
