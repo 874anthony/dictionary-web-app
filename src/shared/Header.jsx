@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import Dropdown from '../components/Dropdown'
-import SwitchSlider from '../components/SwitchSlider'
+import { Dropdown, SwitchSlider } from '../components'
 
 const fontsAvailable = [
   {

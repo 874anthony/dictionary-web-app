@@ -5,11 +5,10 @@ export default function InputSearchIcon () {
   const [error, setError] = useState(false)
 
   const handleOnChange = () => {
-    if (error === true) setError(false)
+    if (error) setError(false)
     const inputValue = inputSearchRef.current.value.trim()
 
-    const borderClass =
-      inputValue.length === 0 ? null : '1px solid var(--color-purple)'
+    const borderClass = inputValue.length === 0 ? null : '1px solid var(--color-purple)'
     inputSearchRef.current.style.border = borderClass
   }
 

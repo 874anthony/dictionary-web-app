@@ -1,9 +1,8 @@
 
-import Header from './shared/Header'
-import Layout from './shared/Layout'
+import { Header, Layout } from './shared'
+import { InputSearchIcon } from './components'
 
 import './App.css'
-import InputSearchIcon from './components/InputSearchIcon'
 
 export default function App () {
   return <Layout>
