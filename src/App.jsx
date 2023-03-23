@@ -30,7 +30,30 @@ export default function App () {
 
     </section>
 
-    <h3 className='title-separator heading-m'>noun</h3>
+    <section className='word-definitions'>
+      <h3 className='title-separator heading-m'>noun</h3>
+
+      <h4 className='word-definition__title mt-4 heading-s'>Meaning</h4>
+
+      <ul role="list" className='word-definition__list'>
+        <li className='word-definition__item body-m'>(etc.) A set of keys used to operate a typewriter, computer etc.</li>
+        <li className='word-definition__item body-m'>A component of many instruments including the piano, organ,
+        and harpsichord consisting of usually black
+         and white keys that cause different tones to be produced when struck.</li>
+        <li className='word-definition__item body-m'>A device with keys of a musical keyboard, used to control
+        electronic sound-producing devices which
+         may be built into or separate from the keyboard device.</li>
+      </ul>
+
+      <div className='word-synonyms'>
+        <h4 className='word-definition__title heading-s'>Synonyms</h4>
+
+        <ul role="list" className='word-synonyms__list'>
+          <li className='word-synonyms__item'>electronic</li>
+          <li className='word-synonyms__item'>keyboard</li>
+        </ul>
+      </div>
+    </section>
 
   </Layout>
 }

@@ -40,6 +40,11 @@ h6 {
   overflow-wrap: break-word;
 }
 
+ul,
+ol {
+  list-style: none;
+}
+
 /* CSS at-rules */
 @font-face {
   font-family: "Inter";
@@ -73,6 +78,7 @@ h6 {
   --color-red: hsl(0, 100%, 66%);
   --color-purple: hsl(274, 82%, 60%);
   --color-white: #fff;
+  --color-gray: #757575;
   --color-black: #2d2d2d;
 
   /* Shadows */
@@ -80,6 +86,9 @@ h6 {
 
   /* Font family */
   --font-family: "Inter", sans-serif;
+
+  /* Light theme */
+  --background-body-color: #ffffff;
 }
 
 /* General styles */
@@ -87,4 +96,5 @@ body {
   display: grid;
   place-items: center;
   padding-top: 5.6rem;
+  background-color: var(--background-body-color);
 }

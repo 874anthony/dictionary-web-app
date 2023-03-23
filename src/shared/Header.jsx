@@ -23,7 +23,10 @@ export default function Header () {
   const [fontSelected, setFontSelected] = useState(selectedFontType)
 
   useEffect(() => {
-    document.body.style.fontFamily = fontSelected.value
+    const { value } = fontSelected
+
+    document.body.style.fontFamily = value
+    document.documentElement.style.setProperty('--font-family', value)
     localStorage.setItem('selectedFontType', JSON.stringify(fontSelected))
   }, [fontSelected])
 
