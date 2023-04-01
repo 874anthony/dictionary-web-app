@@ -40,11 +40,6 @@ h6 {
   overflow-wrap: break-word;
 }
 
-ul,
-ol {
-  list-style: none;
-}
-
 /* CSS at-rules */
 @font-face {
   font-family: "Inter";
@@ -79,10 +74,14 @@ ol {
   --color-purple: hsl(274, 82%, 60%);
   --color-white: #fff;
   --color-gray: #757575;
+  --color-gray-light: rgba(117, 117, 117, 0.4);
   --color-black: #2d2d2d;
 
   /* Shadows */
   --shadow-color: rgba(0, 0, 0, 0.2);
+
+  /* Section separators lines */
+  --section-separator-color: #e9e9e9;
 
   /* Font family */
   --font-family: "Inter", sans-serif;
@@ -96,5 +95,6 @@ body {
   display: grid;
   place-items: center;
   padding-top: 5.6rem;
+  padding-bottom: 12.4rem;
   background-color: var(--background-body-color);
 }
