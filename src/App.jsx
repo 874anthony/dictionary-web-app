@@ -1,33 +1,47 @@
 import { Header, Layout } from './shared'
-import { InputSearchIcon, WordDefinition, WordOverview } from './components'
+import { InputSearchIcon, WordDefinition, WordDefinitionFooter, WordOverview } from './components'
 
 import './App.css'
 
-const nounDefinitions = [
-  {
-    definition:
+const nounDefinitions = {
+  partOfSpeech: 'noun',
+  definitions: [
+    {
+      definition:
       '(etc.) A set of keys used to operate a typewriter, computer etc.'
-  },
-  {
-    definition:
+    },
+    {
+      definition:
       'A component of many instruments including the piano, organ, and harpsichord consisting of usually black and white keys that cause different tones to be produced when struck.'
-  },
-  {
-    definition:
+    },
+    {
+      definition:
       'A device with keys of a musical keyboard, used to control electronic sound-producing devices which may be built into or separate from the keyboard device.'
-  }
-]
+    }
+  ],
+  synonyms: ['electronic keyboard']
+}
 
-const wordSynonyms = [
-  'electronic keyboard'
-]
+const verbDefinitions = {
+  partOfSpeech: 'verb',
+  definitions: [
+    {
+      definition: 'To type on a computer keyboard.',
+      example: '“Keyboarding is the part of this job I hate the most.”'
+    }
+  ]
+}
 
-const verbDefinitions = [
-  {
-    definition: 'To type on a computer keyboard.',
-    exampleText: '“Keyboarding is the part of this job I hate the most.”'
-  }
-]
+const wordResponse = {
+  word: 'keyboard',
+  phonetic: '/ˈkiːbɔːd/',
+  meanings: [
+    nounDefinitions,
+    verbDefinitions
+  ]
+}
+
+const sourceURL = 'https://en.wiktionary.org/wiki/keyboard'
 
 export default function App () {
   return (
@@ -36,23 +50,13 @@ export default function App () {
 
       <InputSearchIcon />
 
-      <WordOverview title='keyboard' pronunciation='/ˈkiːbɔːd/'/>
+      <WordOverview title={wordResponse.word} phonetic={wordResponse.phonetic} />
 
-      <WordDefinition sectionTitle='noun' definitionList={nounDefinitions} synonymsList={wordSynonyms}/>
+      <WordDefinition sectionTitle={nounDefinitions.partOfSpeech} definitionList={nounDefinitions.definitions} synonymsList={nounDefinitions.synonyms}/>
 
-      <WordDefinition sectionTitle='verb' definitionList={verbDefinitions} />
+      <WordDefinition sectionTitle={verbDefinitions.partOfSpeech} definitionList={verbDefinitions.definitions} />
 
-      <footer className='footer mt-4'>
-        <hr />
-
-        <div className='word-reference'>
-          <span className='body-s'>Source</span>
-
-          <a target='_blank' type='text/html' className='word-reference__link body-s' href='https://en.wiktionary.org/wiki/keyboard' rel="noreferrer">
-            https://en.wiktionary.org/wiki/keyboard
-          </a>
-        </div>
-      </footer>
+      <WordDefinitionFooter sourceURL={sourceURL} />
 
     </Layout>
   )

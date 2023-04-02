@@ -5,12 +5,12 @@ const handleVoiceClick = ({ target }) => {
   svgIcon.classList.toggle('active')
 }
 
-export default function WordOverview ({ title, pronunciation }) {
+export default function WordOverview ({ title, phonetic }) {
   return (
     <section className="word-overview">
       <div className="word-search">
         <h1 className="heading-l">{title}</h1>
-        <h2 className="heading-m word-search__music">{pronunciation}</h2>
+        <h2 className="heading-m word-search__music">{phonetic}</h2>
       </div>
 
       <svg
@@ -20,7 +20,7 @@ export default function WordOverview ({ title, pronunciation }) {
         width="75"
         height="75"
         viewBox="0 0 75 75"
-        alt="Pronunciation Play Icon"
+        alt="Phonetic Play Icon"
       >
         <g fill="#A445ED" fillRule="evenodd">
           <circle cx="37.5" cy="37.5" r="37.5" />
@@ -33,5 +33,5 @@ export default function WordOverview ({ title, pronunciation }) {
 
 WordOverview.propTypes = {
   title: PropTypes.string.isRequired,
-  pronunciation: PropTypes.string.isRequired
+  phonetic: PropTypes.string.isRequired
 }
