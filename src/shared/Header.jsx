@@ -1,33 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import useLocalStorage from '../hooks/useLocalStorage'
 
 import { Dropdown, SwitchSlider } from '../components'
-
-const fontsAvailable = [
-  {
-    name: 'Sans Serif',
-    value: "'Inter', sans-serif"
-  },
-  {
-    name: 'Serif',
-    value: "'Lora', serif"
-  },
-  {
-    name: 'Mono',
-    value: "'Inconsolata', monospace"
-  }
-]
-
-const selectedFontType = JSON.parse(localStorage.getItem('selectedFontType')) || fontsAvailable[0]
+import { fontsAvailable, keysStorage } from '../constants'
 
 export default function Header () {
-  const [fontSelected, setFontSelected] = useState(selectedFontType)
+  const [fontSelected, saveToLocalStorage, setFontSelected] = useLocalStorage(keysStorage.fontSelected, fontsAvailable[0])
 
   useEffect(() => {
     const { value } = fontSelected
 
     document.body.style.fontFamily = value
-    document.documentElement.style.setProperty('--font-family', value)
-    localStorage.setItem('selectedFontType', JSON.stringify(fontSelected))
+    saveToLocalStorage(fontSelected)
   }, [fontSelected])
 
   return <header className="header">
