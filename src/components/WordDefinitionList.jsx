@@ -4,11 +4,11 @@ import WordDefinitionItem from './WordDefinitionItem'
 export default function WordDefinitionList ({ definitionList }) {
   return (
     <ul className="word-definition__list">
-      {definitionList.map(({ definition, exampleText }, i) => (
+      {definitionList.map(({ definition, example }, i) => (
         <WordDefinitionItem
           key={i}
           definition={definition}
-          exampleText={exampleText}
+          example={example}
         />
       ))}
     </ul>
@@ -19,7 +19,7 @@ WordDefinitionList.propTypes = {
   definitionList: PropTypes.arrayOf(
     PropTypes.shape({
       definition: PropTypes.string.isRequired,
-      exampleText: PropTypes.string
+      example: PropTypes.string
     })
   )
 }

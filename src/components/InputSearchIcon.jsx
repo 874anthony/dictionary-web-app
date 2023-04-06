@@ -34,6 +34,7 @@ export default function InputSearchIcon () {
         <input
           onChange={handleOnChange}
           onKeyDown={handleOnKeyEnter}
+          onBlur={() => { inputSearchRef.current.style.border = null }}
           ref={inputSearchRef}
           className="input-search"
           type="text"

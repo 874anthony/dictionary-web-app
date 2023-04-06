@@ -77,6 +77,9 @@ h6 {
   --color-gray-light: rgba(117, 117, 117, 0.4);
   --color-black: #2d2d2d;
 
+  /* Inputs */
+  --input-background-color: #f4f4f4;
+
   /* Shadows */
   --shadow-color: rgba(0, 0, 0, 0.2);
 
@@ -88,6 +91,44 @@ h6 {
 
   /* Light theme */
   --background-body-color: #ffffff;
+}
+
+body.dark-theme {
+  --background-body-color: hsl(0, 0%, 2%);
+  --shadow-color: rgba(164, 69, 237, 1);
+  --input-background-color: hsl(0, 0%, 12%);
+}
+
+body.dark-theme h1,
+body.dark-theme h3,
+body.dark-theme p {
+  color: var(--color-white);
+}
+
+body.dark-theme .word-reference__link,
+body.dark-theme .custom-dropdown {
+  color: var(--color-white);
+}
+
+body.dark-theme .custom-dropdown-list {
+  background: hsl(0, 0%, 12%);
+  box-shadow: 0 0.5rem 3rem var(--shadow-color);
+}
+
+body.dark-theme svg > path {
+  stroke: var(--shadow-color);
+}
+
+body.dark-theme .input-search {
+  color: var(--color-white);
+}
+
+body.dark-theme .no-results__title {
+  color: var(--color-white);
+}
+
+body.dark-theme .no-results__paragraph {
+  color: var(--color-gray);
 }
 
 /* General styles */

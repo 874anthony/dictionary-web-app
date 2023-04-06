@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types'
 
-export default function WordDefinitionItem ({ definition, exampleText }) {
+export default function WordDefinitionItem ({ definition, example }) {
   return (
     <li className="word-definition__item body-m">
       <p>{definition}</p>
 
-       { exampleText && <span>{exampleText}</span> }
+       { example && <span>{example}</span> }
     </li>
   )
 }
 
 WordDefinitionItem.propTypes = {
   definition: PropTypes.string.isRequired,
-  exampleText: PropTypes.string
+  example: PropTypes.string
 }
