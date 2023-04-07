@@ -8,7 +8,7 @@ import WordSynonymList from './WordSynonymList'
  * @param {string[]} synonymsList
  * @returns {JSX.Element | null}
  */
-const showSynonyms = synonymsList => synonymsList && <WordSynonymList synonymsList={synonymsList}/>
+const showSynonyms = synonymsList => synonymsList.length > 0 && <WordSynonymList synonymsList={synonymsList}/>
 
 export default function WordDefinition ({ sectionTitle, definitionList, synonymsList }) {
   return (

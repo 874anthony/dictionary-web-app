@@ -5,7 +5,7 @@ export default function WordDefinitionItem ({ definition, example }) {
     <li className="word-definition__item body-m">
       <p>{definition}</p>
 
-       { example && <span>{example}</span> }
+       { example && <span>&ldquo;{example}&ldquo;</span> }
     </li>
   )
 }

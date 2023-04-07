@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react'
 
-export default function InputSearchIcon () {
+import PropTypes from 'prop-types'
+
+export default function InputSearchIcon ({ setInputValue }) {
   const inputSearchRef = useRef()
   const [error, setError] = useState(false)
 
@@ -12,7 +14,7 @@ export default function InputSearchIcon () {
     inputSearchRef.current.style.border = borderClass
   }
 
-  const handleOnKeyEnter = ({ key }) => {
+  const handleOnKeyEnter = async ({ key }) => {
     if (!(key === 'Enter')) return
 
     const inputValue = inputSearchRef.current.value.trim()
@@ -25,6 +27,7 @@ export default function InputSearchIcon () {
       return
     }
 
+    setInputValue(inputValue)
     inputSearchRef.current.blur()
   }
 
@@ -47,4 +50,8 @@ export default function InputSearchIcon () {
       {error && (<span className="input-error-message">Whoops, can&apos;t be empty...</span>)}
     </>
   )
+}
+
+InputSearchIcon.propTypes = {
+  setInputValue: PropTypes.func.isRequired
 }

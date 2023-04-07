@@ -3,7 +3,7 @@ import { useState } from 'react'
 export default function useLocalStorage (key, initialValue) {
   const [storedValue, setStoredValue] = useState(() => {
     const item = window.localStorage.getItem(key)
-    return JSON.parse(item) || initialValue
+    return JSON.parse(item) ?? initialValue
   })
 
   const saveToLocalStorage = (value) => {

@@ -386,3 +386,136 @@ a {
 .mt-4 {
   margin-top: 4rem;
 }
+
+/* MEDIA QUERIES */
+@media (max-width: 48em) {
+  .main-layout {
+    width: 100vw;
+    padding-inline: 4rem;
+  }
+
+  .search-box > .input-search__icon {
+    right: 3%;
+  }
+}
+
+@media (max-width: 27em) {
+  body {
+    padding-top: 2.4rem !important;
+    padding-bottom: 8.5rem !important;
+  }
+
+  .main-layout {
+    padding-inline: 2.4rem;
+  }
+
+  /* FONTS */
+  .heading-l {
+    font-size: 3.2rem;
+    line-height: 3.8rem;
+  }
+
+  .heading-s {
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+  }
+
+  .body-m {
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+  }
+
+  /* HEADER */
+  .custom-dropdown {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    gap: 1.2rem;
+  }
+
+  .custom-dropdown > * {
+    font-size: inherit;
+  }
+
+  .custom-dropdown-list {
+    left: -32%;
+  }
+
+  .header-controls {
+    gap: 1.6rem;
+  }
+
+  .theme-controls {
+    gap: 1.2rem;
+  }
+
+  /* Input search */
+  .input-search {
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    padding-block: 1.4rem;
+  }
+
+  .search-box > .input-search__icon {
+    right: 5%;
+  }
+
+  /* Word Overview */
+  .word-overview {
+    margin-top: 2.4rem;
+  }
+
+  .word-search__music {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+  }
+
+  .word-search__icon {
+    width: 4.8rem;
+    height: 4.8rem;
+  }
+
+  /* Word definitions */
+  .word-definitions {
+    margin-top: 3.2rem;
+  }
+
+  .word-synonyms {
+    margin-top: 2.4rem;
+  }
+
+  .word-synonyms__list {
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+  }
+
+  /* Footer */
+  .word-reference {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .input-error-message {
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+  }
+
+  .no-results {
+    margin-top: 6.4rem;
+  }
+
+  .no-results__text {
+    margin-top: 2.4rem;
+    gap: 1.6rem;
+  }
+
+  .no-results__title {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+  }
+
+  /* UTILS */
+  .mt-4 {
+    margin-top: 3.2rem;
+  }
+}
