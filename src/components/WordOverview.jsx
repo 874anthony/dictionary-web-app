@@ -1,14 +1,21 @@
 import PropTypes from 'prop-types'
 
-const handleVoiceClick = ({ target }) => {
+const handleVoiceClick = ({ target }, audioURL) => {
   const svgIcon = target.closest('svg')
   svgIcon.classList.toggle('active')
+
+  const audio = new Audio(audioURL)
+  audio.play()
+
+  audio.addEventListener('ended', () => {
+    svgIcon.classList.remove('active')
+  })
 }
 
 const showIcon = (phonetic) =>
   phonetic && (
     <svg
-      onClick={handleVoiceClick}
+      onClick={(e) => handleVoiceClick(e, phonetic.audio)}
       className="word-search__icon"
       xmlns="http://www.w3.org/2000/svg"
       width="75"
@@ -29,7 +36,7 @@ export default function WordOverview ({ title, phonetic }) {
       <div className="word-search">
         <h1 className="heading-l">{title}</h1>
 
-        {phonetic && (<h2 className="heading-m word-search__music">{phonetic}</h2>)}
+        {phonetic && (<h2 className="heading-m word-search__music">{phonetic.text}</h2>)}
       </div>
 
       {showIcon(phonetic)}
@@ -39,5 +46,5 @@ export default function WordOverview ({ title, phonetic }) {
 
 WordOverview.propTypes = {
   title: PropTypes.string.isRequired,
-  phonetic: PropTypes.string
+  phonetic: PropTypes.object
 }

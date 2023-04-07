@@ -17,3 +17,5 @@ export const keysStorage = {
   fontSelected: 'selectedFontType',
   isDarkTheme: 'isDarkTheme'
 }
+
+export const API_DICTIONARY_URL = 'https://api.dictionaryapi.dev/api/v2/entries/en/'

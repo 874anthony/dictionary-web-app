@@ -1,32 +1,30 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 import { Header, Layout } from './shared'
 import { InputSearchIcon } from './components'
 
-import './App.css'
-import ResultsPage from './pages/ResultsPage'
-// import NoResultsPage from './pages/NoResultsPage'
+// Hooks
+import useFetch from './hooks/useFetch'
 
-const API_DICTIONARY_URL = 'https://api.dictionaryapi.dev/api/v2/entries/en/'
+import { API_DICTIONARY_URL } from './constants'
+
+import ResultsPage from './pages/ResultsPage'
+import NoResultsPage from './pages/NoResultsPage'
+
+import './App.css'
+
+const showPage = (wordResponse) => {
+  const isWordResponseArray = Array.isArray(wordResponse)
+
+  if (wordResponse && isWordResponseArray) return <ResultsPage wordResponse={wordResponse.at(0)} />
+  if (wordResponse && !isWordResponseArray) return <NoResultsPage title={wordResponse.title} message={wordResponse.message} resolution={wordResponse.resolution} />
+
+  return null
+}
 
 export default function App () {
   const [inputValue, setInputValue] = useState('')
-  const [wordResponse, setWordResponse] = useState(null)
-
-  useEffect(() => {
-    if (inputValue === '') return
-
-    const url = `${API_DICTIONARY_URL}${inputValue}`
-
-    async function fetchData () {
-      const response = await fetch(url)
-      const data = await response.json()
-
-      const { word, sourceUrls, phonetic, meanings, phonetics } = data.at(0)
-      setWordResponse({ word, sourceUrls, phonetic, meanings, phonetics })
-    }
-    fetchData()
-  }, [inputValue])
+  const wordResponse = useFetch(API_DICTIONARY_URL, inputValue)
 
   return (
     <Layout>
@@ -34,8 +32,7 @@ export default function App () {
 
       <InputSearchIcon setInputValue={setInputValue}/>
 
-      {wordResponse && <ResultsPage wordResponse={wordResponse} />}
-      {/* <NoResultsPage /> */}
+      {showPage(wordResponse)}
 
     </Layout>
   )
